@@ -6,11 +6,6 @@ import { PetsListComponent } from "./pets/pets-list/pets-list.component";
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "/pets",
-    pathMatch: "full",
-  },
-  {
     path: "pets",
     children: [
       { path: "", component: PetsListComponent },
@@ -19,6 +14,15 @@ const routes: Routes = [
         component: PetDetailComponent,
       },
     ],
+  },
+  {
+    path: "",
+    redirectTo: "/pets",
+    pathMatch: "full",
+  },
+  {
+    path: "**",
+    redirectTo: "/pets",
   },
 ];
 
