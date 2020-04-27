@@ -7,4 +7,5 @@ export class Pet {
   public length: number;
   public photo_url: string;
   public description: string;
+  public number_of_lives: number;
 }

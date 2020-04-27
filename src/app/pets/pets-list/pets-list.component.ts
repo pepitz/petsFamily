@@ -1,24 +1,23 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { Router } from "@angular/router";
 
-import { Pet } from "./pet.model";
+import { Pet } from "../pet.model";
 
-import { PetsService } from "./pets.service";
+import { PetsService } from "../pets.service";
 @Component({
   selector: "app-pets",
-  templateUrl: "./pets.component.html",
-  styleUrls: ["./pets.component.scss"],
+  templateUrl: "./pets-list.component.html",
+  styleUrls: ["./pets-list.component.scss"],
 })
-export class PetsComponent implements OnInit {
+export class PetsListComponent implements OnInit {
   pets$: Observable<Pet[]> = this.petsService.pets;
   constructor(private petsService: PetsService) {}
 
   ngOnInit(): void {
-    this.getPets();
+    this.loadPets();
   }
 
-  getPets() {
+  loadPets() {
     this.petsService.fetchPets().subscribe();
   }
 }

@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map, tap } from "rxjs/operators";
 
-import { Pet } from "../pets/pet.model";
+import { Pet } from "./pet.model";
 import { environment } from "src/environments/environment";
 
 @Injectable({

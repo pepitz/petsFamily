@@ -2,7 +2,7 @@ import { PetDetailComponent } from "./pets/pet-detail/pet-detail/pet-detail.comp
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { PetsComponent } from "./pets/pets/pets.component";
+import { PetsListComponent } from "./pets/pets-list/pets-list.component";
 
 const routes: Routes = [
   {
@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: "pets",
     children: [
-      { path: "", component: PetsComponent },
+      { path: "", component: PetsListComponent },
       {
         path: ":id",
         component: PetDetailComponent,
