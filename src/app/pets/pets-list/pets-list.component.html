@@ -8,10 +8,12 @@
   </div>
 
   <!-- Sort Form -->
-  <app-pets-sort
-    (sorted)="onSorted($event)"
-    [options]="petOptions"
-  ></app-pets-sort>
+  <div class="petsList-sortBox">
+    <app-pets-sort
+      (sorted)="onSorted($event)"
+      [options]="petOptions"
+    ></app-pets-sort>
+  </div>
 
   <!-- Pets List-->
 

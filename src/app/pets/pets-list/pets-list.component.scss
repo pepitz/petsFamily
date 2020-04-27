@@ -1,0 +1,32 @@
+.pets-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  img {
+    height: 20rem;
+  }
+
+  .pets__list {
+    display: flex;
+    flex: auto;
+    &-container {
+      flex: 0 0 200px;
+    }
+
+    &-sortBox {
+      flex: 60%;
+    }
+
+    & > *:not(:last-child) {
+      margin-right: 1.8rem;
+    }
+  }
+
+  .list-item__info {
+    .info-detail {
+      font-size: 2rem;
+      text-decoration: none;
+    }
+  }
+}

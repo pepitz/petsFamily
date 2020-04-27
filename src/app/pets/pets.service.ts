@@ -1,3 +1,4 @@
+import { PetSortOptions } from "./../constants/pet.constant";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
@@ -21,5 +22,29 @@ export class PetsService {
         this._pets.next(pets);
       })
     );
+  }
+
+  sortPets(criteria: string): void {
+    const pets = this._pets.value;
+    const sortPetFn = (a: Pet, b: Pet): number => {
+      if (
+        criteria === PetSortOptions.NAME ||
+        criteria === PetSortOptions.KIND
+      ) {
+        return a[criteria].toLowerCase() > b[criteria].toLowerCase()
+          ? 1
+          : a[criteria].toLowerCase() === b[criteria].toLowerCase()
+          ? 0
+          : -1;
+      } else {
+        return a[criteria] > b[criteria]
+          ? 1
+          : a[criteria] === b[criteria]
+          ? 0
+          : -1;
+      }
+    };
+    const sortedPets: Pet[] = pets.sort(sortPetFn);
+    this._pets.next(sortedPets.slice());
   }
 }
