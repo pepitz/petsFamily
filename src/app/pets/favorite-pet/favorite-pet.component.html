@@ -1,1 +1,8 @@
-<p>favorite-pet works!</p>
+<div class="favoritePet-content">
+  <button (click)="onShowFavoritePet(pets)" class="favoritePet-content__btn">
+    Show pet
+  </button>
+  <div class="favoritePet-content__name">
+    {{ favoritePet?.name }}
+  </div>
+</div>
