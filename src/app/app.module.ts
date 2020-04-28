@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -9,6 +9,7 @@ import { PetsListComponent } from "./pets/pets-list/pets-list.component";
 import { PetDetailComponent } from "./pets/pet-detail/pet-detail/pet-detail.component";
 import { FavoritePetComponent } from "./pets/favorite-pet/favorite-pet.component";
 import { PetsSortComponent } from "./pets/pets-sort/pets-sort.component";
+import { PetsInterceptorService } from "./pets/pets-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,13 @@ import { PetsSortComponent } from "./pets/pets-sort/pets-sort.component";
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PetsInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
