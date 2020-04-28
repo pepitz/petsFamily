@@ -1,11 +1,12 @@
 <div *ngIf="pets$ | async as petslist" class="pets-section">
-
   <!-- Favourite Pet Section -->
+
   <section class="favoritePet">
-    <app-favorite-pet *ngIf="petslist" [pets]="petslist"></app-favorite-pet>
+    <app-favorite-pet [pets]="petslist"></app-favorite-pet>
   </section>
 
   <!-- Sort Form -->
+
   <section class="pets-sortBox">
     <app-pets-sort
       (sorted)="onSorted($event)"
@@ -16,14 +17,11 @@
   <!-- Page List Controls -->
 
   <section *ngIf="linkControls$ | async as links" class="pets-controls">
-    <div class="pets-controls__content">
-      <a
-        *ngFor="let item of links | keyvalue"
-        class="pets-controls__link"
-        (click)="onPageControlClick(item.value)"
-        >{{ item.key }}</a
-      >
-    </div>
+    <app-list-controls
+      [links]="links | keyvalue"
+      (linkClicked)="onPageControlClick($event)"
+    >
+    </app-list-controls>
   </section>
 
   <!-- Pets List-->

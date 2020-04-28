@@ -1,8 +1,7 @@
-<div *ngIf="sortOptions" class="sort-box">
+<div class="sort-box">
   <h2 class="sort-box__title">Sort by:</h2>
 
   <form [formGroup]="sortForm" class="sort-box__form" novalidate>
-    <p>{{ sortForm.value | json }}</p>
     <div class="sort-box__group">
       <label
         *ngFor="let option of sortOptions"
