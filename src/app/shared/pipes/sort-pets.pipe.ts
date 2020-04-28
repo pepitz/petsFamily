@@ -1,4 +1,4 @@
-import { sortPetFn } from "../../utilities/sortPetFn";
+import { sortPetFn } from "../utilities/sortPetFn";
 import { Pipe, PipeTransform } from "@angular/core";
 import { Pet } from "../../pets/pet.model";
 

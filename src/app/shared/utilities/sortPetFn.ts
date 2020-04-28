@@ -1,5 +1,5 @@
-import { Pet } from "../../pets/pet.model";
 import { PetSortOptions } from "../constants/pet.constant";
+import { Pet } from "../../pets/pet.model";
 
 export const sortPetFn = (
   a: Pet,
