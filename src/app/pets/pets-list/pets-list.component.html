@@ -1,9 +1,11 @@
 <section *ngIf="pets$ | async as petslist" class="pets-section">
   <!-- Favourite Pet Section -->
   <div class="favorite-pet">
-    <button class="pet-of-day__btn">Show Favourite pet</button>
+    <button (click)="onShowFavoritePet(petslist)" class="pet-of-day__btn">
+      Show pet
+    </button>
     <div class="pet-of-day__today">
-      here the pet of the day
+      {{ favoritePet?.name }}
     </div>
   </div>
 
@@ -15,7 +17,7 @@
     ></app-pets-sort>
   </div>
 
-  <!-- List Page Controls -->
+  <!-- Page List Controls -->
 
   <div *ngIf="linkControls$ | async as links" class="pets-controls">
     <div class="pets-controls__content">
