@@ -1,4 +1,4 @@
-<section *ngIf="pets$ | async as petslist" class="pets-container">
+<section *ngIf="pets$ | async as petslist" class="pets-section">
   <!-- Favourite Pet Section -->
   <div class="favorite-pet">
     <button class="pet-of-day__btn">Show Favourite pet</button>
@@ -8,16 +8,29 @@
   </div>
 
   <!-- Sort Form -->
-  <div class="petsList-sortBox">
+  <div class="pets-sortBox">
     <app-pets-sort
       (sorted)="onSorted($event)"
       [options]="petOptions"
     ></app-pets-sort>
   </div>
 
+  <!-- List Page Controls -->
+
+  <div *ngIf="linkControls$ | async as links" class="pets-controls">
+    <div class="pets-controls__content">
+      <a
+        *ngFor="let item of links | keyvalue"
+        class="pets-controls__link"
+        (click)="onPageControlClick(item.value)"
+        >{{ item.key }}</a
+      >
+    </div>
+  </div>
+
   <!-- Pets List-->
 
-  <div class="petsList-container">
+  <div class="pets-container">
     <h2>Pets catalogue:</h2>
     <ul class="pets__list">
       <li *ngFor="let pet of petslist; let i = index" class="pets__list-item">

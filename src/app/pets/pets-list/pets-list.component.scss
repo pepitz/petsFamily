@@ -1,4 +1,4 @@
-.pets-container {
+.pets-section {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -7,26 +7,13 @@
     height: 20rem;
   }
 
-  .pets__list {
-    display: flex;
-    flex: auto;
-    &-container {
-      flex: 0 0 200px;
-    }
-
-    &-sortBox {
-      flex: 60%;
-    }
-
-    & > *:not(:last-child) {
-      margin-right: 1.8rem;
-    }
-  }
-
-  .list-item__info {
-    .info-detail {
+  .pets-controls {
+    &__link {
       font-size: 2rem;
-      text-decoration: none;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 1.5rem;
+      }
     }
   }
 }

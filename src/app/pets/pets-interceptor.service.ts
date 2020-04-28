@@ -1,10 +1,8 @@
-import { PetsService } from "./pets.service";
 import { Injectable } from "@angular/core";
 import {
   HttpInterceptor,
   HttpRequest,
   HttpResponse,
-  HttpParams,
   HttpHandler,
   HttpEvent,
 } from "@angular/common/http";
@@ -13,7 +11,7 @@ import { tap } from "rxjs/operators";
 
 @Injectable()
 export class PetsInterceptorService implements HttpInterceptor {
-  constructor(private petsService: PetsService) {}
+  constructor() {}
 
   intercept(
     req: HttpRequest<any>,

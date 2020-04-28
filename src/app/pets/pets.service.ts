@@ -25,9 +25,12 @@ export class PetsService {
 
   constructor(private http: HttpClient) {}
 
-  fetchPets() {
+  fetchPets(pageURL?: string) {
+    const defaultURL = `${environment.base_url}?_page=/1`;
+    const URL = pageURL ? pageURL : defaultURL;
+
     return this.http
-      .get<Pet[]>(`${environment.base_url}?_page=/1`, { observe: "response" })
+      .get<Pet[]>(URL, { observe: "response" })
       .pipe(
         tap((response) => {
           let linkObj = this.getLinkHeader(response.headers.get("Link"));
@@ -35,7 +38,8 @@ export class PetsService {
           this._linkControlURLs.next(linkObj);
           this._pets.next(response.body);
         })
-      );
+      )
+      .subscribe();
   }
 
   getLinkHeader(header) {

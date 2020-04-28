@@ -6,12 +6,14 @@ import { PetSortOptions } from "../../constants/pet.constant";
 
 import { PetsService } from "../pets.service";
 import { tap } from "rxjs/operators";
+import { LinkHeader } from "../link.model";
 @Component({
   selector: "app-pets",
   templateUrl: "./pets-list.component.html",
   styleUrls: ["./pets-list.component.scss"],
 })
 export class PetsListComponent implements OnInit, OnDestroy {
+  linkControls$: Observable<LinkHeader> = this.petsService.linkControlURLs;
   pets$: Observable<Pet[]> = this.petsService.pets;
   petOptions: string[] = Object.values(PetSortOptions);
   sortedOption: string;
@@ -27,12 +29,16 @@ export class PetsListComponent implements OnInit, OnDestroy {
   }
 
   loadPets() {
-    this.petsService.fetchPets().subscribe();
+    this.petsService.fetchPets();
   }
 
   onSorted(event: string) {
     this.sortedOption = event;
     this.petsService.sortPets(this.sortedOption);
+  }
+
+  onPageControlClick(link?: string) {
+    this.petsService.fetchPets(link);
   }
 
   ngOnDestroy() {
