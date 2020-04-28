@@ -1,3 +1,4 @@
+import { SortPetsPipe } from './../../shared/pipes/sort-pets.pipe';
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Observable, Subscription } from "rxjs";
 
@@ -5,7 +6,7 @@ import { Pet } from "../pet.model";
 import { LinkHeader } from "../link.model";
 
 import { PetsService } from "../pets.service";
-import { SortPetsPipe } from "./../../pipes/sort-pets.pipe";
+
 
 @Component({
   selector: "app-pets",

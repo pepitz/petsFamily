@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Pet } from "../pet.model";
 
-import { getCurrentDay } from "./../../utilities/currentDayNumberFn";
+import { getCurrentDay } from "../../shared/utilities/currentDayNumberFn";
 
 getCurrentDay;
 

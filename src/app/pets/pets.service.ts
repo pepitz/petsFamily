@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, Subscription } from "rxjs";
 import { tap } from "rxjs/operators";
 
-import { PetSortOptions } from "../constants/pet.constant";
+import { PetSortOptions } from "../shared/constants/pet.constant";
 import { LinkHeader } from "./link.model";
 import { Pet } from "./pet.model";
 
