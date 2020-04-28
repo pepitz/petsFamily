@@ -29,7 +29,10 @@
   <div class="pets-container">
     <h2>Pets catalogue:</h2>
     <ul class="pets__list">
-      <li *ngFor="let pet of petslist; let i = index" class="pets__list-item">
+      <li
+        *ngFor="let pet of petslist | sortPets: sortParam; let i = index"
+        class="pets__list-item"
+      >
         <a routerLink="{{ pet.id }}">
           <img
             [src]="pet.photo_url"

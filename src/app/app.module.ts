@@ -11,6 +11,7 @@ import { FavoritePetComponent } from "./pets/favorite-pet/favorite-pet.component
 import { PetsSortComponent } from "./pets/pets-sort/pets-sort.component";
 import { PetsInterceptorService } from "./pets/pets-interceptor.service";
 import { ListControlsComponent } from "./pets/pets-list/list-controls/list-controls.component";
+import { SortPetsPipe } from './pipes/sort-pets.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ListControlsComponent } from "./pets/pets-list/list-controls/list-contr
     FavoritePetComponent,
     PetsSortComponent,
     ListControlsComponent,
+    SortPetsPipe,
   ],
   imports: [
     BrowserModule,

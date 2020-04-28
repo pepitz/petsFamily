@@ -66,6 +66,11 @@ export class PetsService {
     const pets = this._pets.value;
     const sortedPets: Pet[] = pets.sort((a, b) => sortPetFn(a, b, criteria));
     this._pets.next(sortedPets.slice());
-    this._sortedBy.next(criteria);
+    this.changeSortedBy(criteria);
   }
+
+  changeSortedBy(option: string) {
+    this._sortedBy.next(option);
+  }
+
 }
