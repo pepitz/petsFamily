@@ -1,0 +1,40 @@
+.detail-view {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  padding: 3rem;
+
+  & > * {
+    flex: 1;
+    border: 1px solid grey;
+    font-size: 2rem;
+    padding: 2rem;
+    display: block;
+
+    &:first-child {
+      border-radius: 5px 5px 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 5px 5px;
+    }
+
+    .hero__label {
+      font-weight: bold;
+      font-size: 1.7rem;
+    }
+
+    & > :not(.hero__label) {
+      font-size: 2rem;
+      font-style: italic;
+    }
+  }
+
+  &__img {
+    padding: none;
+    height: 12rem;
+    img {
+      height: 100%;
+    }
+  }
+}

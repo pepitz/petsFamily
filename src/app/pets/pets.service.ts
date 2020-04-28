@@ -42,6 +42,10 @@ export class PetsService {
       .subscribe();
   }
 
+  getPet(id: number):Observable<Pet> {
+    return this.http.get<Pet>(`${environment.base_url}${id}`);
+  }
+
   getLinkHeader(header) {
     if (header.length == 0) {
       return;

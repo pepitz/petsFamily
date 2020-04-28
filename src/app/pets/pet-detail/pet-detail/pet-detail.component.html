@@ -1,1 +1,17 @@
-<p>pet-detail works!</p>
+<div *ngIf="pet" class="detail-view">
+  <div class="detail-view__img">
+    <img [src]="pet.photo_url" alt="Image of {{ pet.name }}" />
+  </div>
+  <div class="detail-view__name">
+    <span class="pet__label">Name:</span>
+    <p>{{ pet.name }}</p>
+  </div>
+  <div class="detail-view__home">
+    <span class="pet__label">Publishing house:</span>
+    <p>{{ pet.kind }}</p>
+  </div>
+  <div class="detail-view__bio">
+    <span class="pet__label">Bio:</span>
+    <p>{{ pet.description }}</p>
+  </div>
+</div>
