@@ -2,7 +2,7 @@ import { PetSortOptions } from "./../constants/pet.constant";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
-import { map, tap } from "rxjs/operators";
+import { tap } from "rxjs/operators";
 
 import { Pet } from "./pet.model";
 import { environment } from "src/environments/environment";
@@ -13,6 +13,9 @@ import { environment } from "src/environments/environment";
 export class PetsService {
   private _pets: BehaviorSubject<Pet[]> = new BehaviorSubject(null);
   public readonly pets: Observable<Pet[]> = this._pets.asObservable();
+
+  private _sortedBy: BehaviorSubject<string> = new BehaviorSubject(null);
+  public readonly sortedBy: Observable<string> = this._sortedBy.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -46,5 +49,6 @@ export class PetsService {
     };
     const sortedPets: Pet[] = pets.sort(sortPetFn);
     this._pets.next(sortedPets.slice());
+    this._sortedBy.next(criteria);
   }
 }
