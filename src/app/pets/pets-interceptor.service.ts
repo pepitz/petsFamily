@@ -20,7 +20,7 @@ export class PetsInterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(
       tap((httpEvent: HttpEvent<any>) => {
         if (httpEvent instanceof HttpResponse) {
-          console.log("intercepted HttpResponse: ", httpEvent);
+          // console.log("intercepted HttpResponse: ", httpEvent);
         }
       })
     );
