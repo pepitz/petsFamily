@@ -1,6 +1,5 @@
 <div *ngIf="pets$ | async as petslist" class="pets-section">
   <!-- Favourite Pet Section -->
-
   <section class="favoritePet">
     <app-favorite-pet [pets]="petslist"></app-favorite-pet>
   </section>
@@ -9,8 +8,9 @@
 
   <section class="pets-sortBox">
     <app-pets-sort
-      (sorted)="onSorted($event)"
+      [checkedRadio]="sortParam"
       [options]="petOptions"
+      (sorted)="onSorted($event)"
     ></app-pets-sort>
   </section>
 

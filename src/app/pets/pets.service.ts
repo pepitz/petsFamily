@@ -1,12 +1,13 @@
-import { LinkHeader } from "./link.model";
-import { Injectable } from "@angular/core";
 import { HttpClient, HttpResponse } from "@angular/common/http";
-import { BehaviorSubject, Observable } from "rxjs";
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable, Subscription } from "rxjs";
 import { tap } from "rxjs/operators";
 
+import { PetSortOptions } from "../constants/pet.constant";
+import { LinkHeader } from "./link.model";
 import { Pet } from "./pet.model";
+
 import { environment } from "src/environments/environment";
-import { sortPetFn } from "../utilities/sortPetFn";
 
 @Injectable({
   providedIn: "root",
@@ -25,7 +26,7 @@ export class PetsService {
 
   constructor(private http: HttpClient) {}
 
-  fetchPets(pageURL?: string) {
+  fetchPets(pageURL?: string): Subscription {
     const defaultURL = `${environment.base_url}?_page=/1`;
     const URL = pageURL ? pageURL : defaultURL;
 
@@ -46,31 +47,27 @@ export class PetsService {
     return this.http.get<Pet>(`${environment.base_url}${id}`);
   }
 
-  getLinkHeader(header) {
+  getPetSortOptions(): string[] {
+    return Object.values(PetSortOptions);
+  }
+
+  getLinkHeader(header: string) {
     if (header.length == 0) {
       return;
     }
 
     let parts = header.split(",");
-    var links = {};
-    parts.forEach((p) => {
-      let section = p.split(";");
-      var url = section[0].replace(/<(.*)>/, "$1").trim();
-      var name = section[1].replace(/rel="(.*)"/, "$1").trim();
+    let links = {};
+    parts.forEach((part: string) => {
+      let section = part.split(";");
+      const url = section[0].replace(/<(.*)>/, "$1").trim();
+      const name = section[1].replace(/rel="(.*)"/, "$1").trim();
       links[name] = url;
     });
     return links;
   }
 
-  sortPets(criteria: string): void {
-    const pets = this._pets.value;
-    const sortedPets: Pet[] = pets.sort((a, b) => sortPetFn(a, b, criteria));
-    this._pets.next(sortedPets.slice());
-    this.changeSortedBy(criteria);
-  }
-
   changeSortedBy(option: string) {
     this._sortedBy.next(option);
   }
-
 }

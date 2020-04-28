@@ -3,11 +3,9 @@ import { Observable, Subscription } from "rxjs";
 
 import { Pet } from "../pet.model";
 import { LinkHeader } from "../link.model";
-import { PetSortOptions } from "../../constants/pet.constant";
 
 import { PetsService } from "../pets.service";
 import { SortPetsPipe } from "./../../pipes/sort-pets.pipe";
-import { distinctUntilChanged } from "rxjs/operators";
 
 @Component({
   selector: "app-pets",
@@ -16,22 +14,27 @@ import { distinctUntilChanged } from "rxjs/operators";
   providers: [SortPetsPipe],
 })
 export class PetsListComponent implements OnInit, OnDestroy {
-  linkControls$: Observable<LinkHeader> = this.petsService.linkControlURLs;
   pets$: Observable<Pet[]> = this.petsService.pets;
-  petOptions: string[] = Object.values(PetSortOptions);
+  linkControls$: Observable<LinkHeader> = this.petsService.linkControlURLs;
+
   sortedBy$: Observable<string> = this.petsService.sortedBy;
   sortSubs: Subscription;
   sortParam = "";
 
+  petOptions: string[];
+
   constructor(private petsService: PetsService) {}
 
   ngOnInit(): void {
-    this.sortSubs = this.sortedBy$
-      .pipe(distinctUntilChanged())
-      .subscribe((sorted) => {
-        this.sortParam = sorted;
-      });
     this.loadPets();
+    this.loadPetSortOptions();
+    this.sortSubs = this.sortedBy$.subscribe((sorted) => {
+      this.sortParam = sorted;
+    });
+  }
+
+  loadPetSortOptions() {
+    this.petOptions = this.petsService.getPetSortOptions();
   }
 
   loadPets() {
@@ -40,7 +43,6 @@ export class PetsListComponent implements OnInit, OnDestroy {
 
   onSorted(option: string) {
     this.petsService.changeSortedBy(option);
-    this.petsService.sortPets(option);
   }
 
   onPageControlClick(link?: string) {

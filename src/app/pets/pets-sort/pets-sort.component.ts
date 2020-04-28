@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 export class PetsSortComponent implements OnInit {
   sortForm: FormGroup;
   @Input("options") sortOptions: string[] = [];
+  @Input() checkedRadio: string;
   @Output() sorted = new EventEmitter<{ [key: string]: string }>();
 
   constructor(private fb: FormBuilder) {}
@@ -20,19 +21,17 @@ export class PetsSortComponent implements OnInit {
 
   initForm() {
     this.sortForm = this.fb.group({
-      radio: [null],
+      radio: [this.checkedRadio || null],
+    });
+  }
+
+  onRadioInputChange() {
+    this.sortForm.valueChanges.subscribe((_: any) => {
+      this.sorted.emit(this.radioCtrl.value);
     });
   }
 
   get radioCtrl() {
     return this.sortForm.controls["radio"];
-  }
-
-  onRadioInputChange() {
-    this.sortForm.valueChanges.subscribe((changes) => {
-      console.log("onFormControl update: ", changes);
-      console.log("radio selected: ", this.radioCtrl.value);
-      this.sorted.emit(this.radioCtrl.value);
-    });
   }
 }

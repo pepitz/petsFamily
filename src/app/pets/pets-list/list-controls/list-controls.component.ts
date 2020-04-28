@@ -1,7 +1,4 @@
-import { EventEmitter } from "@angular/core";
-import { Component, OnInit, Input, Output } from "@angular/core";
-import { LinkHeader } from "../../link.model";
-import { Observable } from "rxjs";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-list-controls",
@@ -11,7 +8,7 @@ import { Observable } from "rxjs";
 export class ListControlsComponent implements OnInit {
   @Input() links: { [key: string]: string }[];
   @Output() linkClicked: EventEmitter<string> = new EventEmitter();
-  keyValueLinks: Array<any>;
+
   constructor() {}
 
   ngOnInit(): void {}
