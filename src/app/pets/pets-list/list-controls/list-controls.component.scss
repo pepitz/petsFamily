@@ -1,9 +1,14 @@
-.pets-controls {
-  &__link {
-    font-size: 2rem;
-    cursor: pointer;
-    &:not(:last-child) {
-      margin-right: 1.5rem;
+.pets-controls__content {
+  font-size: 1.4rem;
+
+  .pets-controls__link {
+    font-size: 2.2rem;
+    margin-right: 3rem;
+    border-bottom: 2px solid transparent;
+    &:hover {
+      color: red;
+      cursor: pointer;
+      border-bottom: 2px solid var(--color-black);
     }
   }
 }

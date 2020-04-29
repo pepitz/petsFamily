@@ -1,11 +1,38 @@
 .pets-section {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
+  display: block;
 
-  img {
-    height: 20rem;
+  .favorite-section {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: var(--line);
   }
 
-  
+  .pets-controls {
+    display: flex;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-bottom: var(--line);
+  }
+
+  .pets-container {
+    display: grid;
+
+    &__title {
+      font-size: 4rem;
+      text-transform: uppercase;
+      align-self: center;
+      margin: 0 auto;
+      padding: 3rem;
+      color: var(--color-black);
+    }
+    &__list {
+      
+      .pets__list-item {
+        img {
+          width: 20%;
+        }
+      }
+    }
+  }
 }

@@ -1,8 +1,19 @@
-<div class="favoritePet-content">
-  <button (click)="onShowFavoritePet(pets)" class="favoritePet-content__btn">
-    Show pet
-  </button>
-  <div class="favoritePet-content__name">
-    {{ favoritePet?.name }}
+<div class="favorite">
+  <div *ngIf="isVisible" class="favorite__box">
+    <div class="favorite__box-content">
+      <img
+        class="favorite__box-img"
+        [src]="favoritePet.photo_url"
+        alt="A {{ favoritePet.kind }}"
+      />
+      <h3 class="favorite__box-title">{{ favoritePet?.name }}</h3>
+    </div>
+  </div>
+
+  <div *ngIf="!isVisible" class="favorite__welcome">
+    <h2 class="favorite__welcome-title">Pet of the day</h2>
+    <button class="btn btn--white btn--animated" (click)="onShow()">
+      Click to show
+    </button>
   </div>
 </div>

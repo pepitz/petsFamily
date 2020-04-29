@@ -1,5 +1,41 @@
 .sort-box {
-  & > * {
-    font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  border-bottom: var(--line);
+  font-size: 2rem;
+
+  &__title {
+    margin-right: 2rem;
+    font-size: 2.6rem !important;
+    color: var(--color-black);
+  }
+
+  &__form {
+    font-size: 2.2rem;
+    border: 1px solid var(--color-grey-dark-3);
+    align-self: center;
+    padding: 1.5rem;
+    border-radius: 100px;
+  }
+
+  &__group {
+    & > *:not(:last-child) {
+      margin-right: 1.6rem;
+    }
+
+    &-label {
+      display: inline-flex;
+      align-items: center;
+      &:hover {
+        color: red;
+      }
+    }
+
+    &-radioButton {
+      margin-right: 0.4rem;
+      height: 2rem;
+    }
   }
 }

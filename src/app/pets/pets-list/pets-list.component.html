@@ -1,6 +1,6 @@
 <div *ngIf="pets$ | async as petslist" class="pets-section">
   <!-- Favourite Pet Section -->
-  <section class="favoritePet">
+  <section class="favorite-section">
     <app-favorite-pet [pets]="petslist"></app-favorite-pet>
   </section>
 
@@ -27,8 +27,8 @@
   <!-- Pets List-->
 
   <div class="pets-container">
-    <h2>Pets catalogue:</h2>
-    <ul class="pets__list">
+    <h2 class="pets-container__title">Our pets:</h2>
+    <ul class="pets-container__list">
       <li
         *ngFor="let pet of petslist | sortPets: sortParam; let i = index"
         class="pets__list-item"

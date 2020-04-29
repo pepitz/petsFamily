@@ -13,17 +13,24 @@ getCurrentDay;
 export class FavoritePetComponent implements OnInit {
   @Input() pets: Pet[] = [];
   favoritePet: Pet;
+  isVisible = false;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.loadPetofTheDay(this.pets);
+  }
 
-  onShowFavoritePet(pets: Pet[]): void {
+  loadPetofTheDay(pets: Pet[]) {
     if (this.favoritePet) {
       return;
     }
     const calendarPets = pets.slice(0, 7);
     const favoritePet = calendarPets[getCurrentDay()];
     this.favoritePet = favoritePet;
+  }
+
+  onShow(): void {
+    this.isVisible = !this.isVisible;
   }
 }
