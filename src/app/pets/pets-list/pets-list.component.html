@@ -1,0 +1,50 @@
+<div *ngIf="pets$ | async as petslist" class="pets-section">
+  <!-- Favourite Pet Section -->
+  <section class="favorite-section">
+    <app-favorite-pet [pets]="petslist"></app-favorite-pet>
+  </section>
+
+  <!-- Sort Form -->
+
+  <section class="pets-sortBox">
+    <app-pets-sort
+      [checkedRadio]="sortParam"
+      [options]="petOptions"
+      (sorted)="onSorted($event)"
+    ></app-pets-sort>
+  </section>
+
+  <!-- Page List Controls -->
+
+  <section *ngIf="linkControls$ | async as links" class="pets-controls">
+    <app-list-controls
+      [links]="links | keyvalue"
+      (linkClicked)="onPageControlClick($event)"
+    >
+    </app-list-controls>
+  </section>
+
+  <!-- Pets List-->
+
+  <div class="pets-container">
+    <h2 class="pets-container__title">Our pets:</h2>
+    <ul class="pets-container__list">
+      <li
+        *ngFor="let pet of petslist | sortPets: sortParam; let i = index"
+        class="pets__list--item"
+      >
+        <a class="column__link" routerLink="{{ pet.id }}">
+          <div class="list-item__img">
+            <img
+              [src]="pet.photo_url"
+              alt="A {{ pet.kind }} named {{ pet.name }}"
+            />
+          </div>
+          <div class="list-item__info">
+            <h4 class="info-detail info-detail-name">{{ pet.name }}</h4>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

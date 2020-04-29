@@ -1,0 +1,21 @@
+<div class="sort-box">
+  <h2 class="sort-box__title">Sort by:</h2>
+
+  <form [formGroup]="sortForm" class="sort-box__form" novalidate>
+    <div class="sort-box__group">
+      <label
+        *ngFor="let option of sortOptions"
+        for="{{ option }}"
+        class="sort-box__group-label"
+      >
+        <input
+          class="sort-box__group-radioButton"
+          type="radio"
+          id="{{ option }}"
+          value="{{ option }}"
+          formControlName="radio"
+        />{{ option }}
+      </label>
+    </div>
+  </form>
+</div>

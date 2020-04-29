@@ -1,0 +1,9 @@
+<div class="pets-controls__content">
+  <h2 class="pets-controls__title">Go to Page:</h2>
+  <a
+    *ngFor="let item of links"
+    class="pets-controls__link"
+    (click)="onLink(item.value)"
+    >{{ item.key }}</a
+  >
+</div>

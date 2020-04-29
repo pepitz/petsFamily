@@ -1,12 +1,20 @@
+<!-- <app-loader></app-loader> -->
 <div class="container">
   <header class="header">
     <div class="header__logo-box">
-      Pets Logo
+      <a [routerLink]="['/pets']" class="header__logo-link">
+        <img
+          src="../assets/images/black_and_white_whiskey_logo.jpg"
+          alt="Black and White Dogs Whiskey Lovers"
+          class="header__logo"
+        />
+      </a>
     </div>
     <div class="header__title-box">
-      <h1 class="heading">The Pets Catalogue</h1>
+      <h1 class="heading-primary">The Pets Catalogue</h1>
     </div>
   </header>
+
   <main class="content">
     <router-outlet></router-outlet>
   </main>

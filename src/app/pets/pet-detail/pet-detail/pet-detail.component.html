@@ -1,1 +1,46 @@
-<p>pet-detail works!</p>
+<div *ngIf="pet" class="detail-view">
+  <section class="detail__wrapper detail__wrapper-img">
+    <div class="detail-view__img">
+      <img
+        class="detail-img"
+        [src]="pet.photo_url"
+        alt="Image of {{ pet.name }}"
+      />
+    </div>
+  </section>
+
+  <section class="detail-wrapper detail__wrapper-spec">
+    <div class="inline detail-view__name">
+      <span class="pet__label">Name:</span>
+      <p>{{ pet.name }}</p>
+    </div>
+    <div class="inline detail-view__home">
+      <span class="pet__label">Kind:</span>
+      <p>{{ pet.kind }}</p>
+    </div>
+    <div *ngIf="pet.number_of_lives" class="inline detail-view__lives">
+      <span class="pet__label">Number of lives:</span>
+      <p>{{ pet.number_of_lives }}</p>
+    </div>
+    <div class="inline detail-view__height">
+      <span class="pet__label">Height:</span>
+      <p>{{ pet.height }} cm</p>
+    </div>
+    <div class="inline detail-view__weight">
+      <span class="pet__label">Weight:</span>
+      <p>{{ pet.weight }} gr.</p>
+    </div>
+    <div class="inline detail-view__home">
+      <span class="pet__label">Length:</span>
+      <p>{{ pet.length }} cm</p>
+    </div>
+    <div class="inline detail-view__bio">
+      <span class="pet__label">Bio:</span>
+      <p>{{ pet.description }}</p>
+    </div>
+    <div class="inline detail-view__health">
+      <span class="pet__label">Health status:</span>
+      <p>{{ calculateHealth(pet) }}</p>
+    </div>
+  </section>
+</div>

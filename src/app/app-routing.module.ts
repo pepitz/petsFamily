@@ -1,24 +1,29 @@
+import { PageNotFoundComponent } from "./error/page-not-found/page-not-found.component";
 import { PetDetailComponent } from "./pets/pet-detail/pet-detail/pet-detail.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { PetsComponent } from "./pets/pets/pets.component";
+import { PetsListComponent } from "./pets/pets-list/pets-list.component";
 
 const routes: Routes = [
+  {
+    path: "pets",
+    children: [
+      { path: "", component: PetsListComponent },
+      {
+        path: ":id",
+        component: PetDetailComponent,
+      },
+    ],
+  },
   {
     path: "",
     redirectTo: "/pets",
     pathMatch: "full",
   },
   {
-    path: "pets",
-    children: [
-      { path: "", component: PetsComponent },
-      {
-        path: ":id",
-        component: PetDetailComponent,
-      },
-    ],
+    path: "**",
+    component: PageNotFoundComponent,
   },
 ];
 

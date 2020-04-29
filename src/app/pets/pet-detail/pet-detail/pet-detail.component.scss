@@ -1,0 +1,48 @@
+.detail-view {
+  display: flex;
+  padding: 3rem;
+
+  .detail__wrapper {
+    flex: 1;
+
+    &-img {
+      flex: 1;
+      display: flex;
+    }
+
+    &-spec {
+      flex: 2;
+
+      .inline {
+        display: flex;
+        & > * {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  & > * {
+    flex: 1;
+    border: 1px solid grey;
+    font-size: 2rem;
+    padding: 2rem;
+    display: block;
+
+    .pet__label {
+      font-weight: bold;
+      font-size: 2.2rem;
+    }
+
+    & > *:not(.pet__label) {
+      font-size: 2rem;
+      font-style: italic;
+    }
+  }
+
+  &__img {
+    .detail-img {
+      height: 30rem;
+    }
+  }
+}

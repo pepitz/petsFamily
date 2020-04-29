@@ -1,0 +1,36 @@
+@import "../../../styles/button";
+
+.favorite {
+  display: flex;
+  flex: 1;
+  height: 30rem;
+
+  & > * {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .favorite__box {
+    font-size: 2rem;
+    color: var(--color-black);
+    &-content {
+      text-align: center;
+
+      .favorite__box-img {
+        height: 20rem;
+      }
+    }
+  }
+
+  .favorite__welcome {
+    flex-direction: column;
+
+    &-title {
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+  }
+}
