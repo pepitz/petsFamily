@@ -2,11 +2,13 @@
 <div class="container">
   <header class="header">
     <div class="header__logo-box">
-      <img
-        src="../assets/images/black_and_white_whiskey_logo.jpg"
-        alt="Black and White Dogs Whiskey Lovers"
-        class="header__logo"
-      />
+      <a [routerLink]="['/pets']" class="header__logo-link">
+        <img
+          src="../assets/images/black_and_white_whiskey_logo.jpg"
+          alt="Black and White Dogs Whiskey Lovers"
+          class="header__logo"
+        />
+      </a>
     </div>
     <div class="header__title-box">
       <h1 class="heading-primary">The Pets Catalogue</h1>

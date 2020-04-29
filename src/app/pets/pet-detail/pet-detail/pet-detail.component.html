@@ -31,12 +31,16 @@
       <p>{{ pet.weight }} gr.</p>
     </div>
     <div class="inline detail-view__home">
-      <span class="pet__label">Kind:</span>
+      <span class="pet__label">Length:</span>
       <p>{{ pet.length }} cm</p>
     </div>
     <div class="inline detail-view__bio">
       <span class="pet__label">Bio:</span>
       <p>{{ pet.description }}</p>
+    </div>
+    <div class="inline detail-view__health">
+      <span class="pet__label">Health status:</span>
+      <p>{{ calculateHealth(pet) }}</p>
     </div>
   </section>
 </div>

@@ -13,6 +13,7 @@ import { PetsInterceptorService } from "./pets/pets-interceptor.service";
 import { ListControlsComponent } from "./pets/pets-list/list-controls/list-controls.component";
 import { SortPetsPipe } from './shared/pipes/sort-pets.pipe';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { HealthStatusPipe } from './shared/pipes/health-status.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
     ListControlsComponent,
     SortPetsPipe,
     LoaderComponent,
+    HealthStatusPipe,
   ],
   imports: [
     BrowserModule,
