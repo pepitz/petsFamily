@@ -1,4 +1,3 @@
-import { HealthStatusPipe } from "./../../../shared/pipes/health-status.pipe";
 import { Subscription } from "rxjs";
 import { PetsService } from "./../../pets.service";
 import { Component, OnInit } from "@angular/core";
@@ -9,7 +8,6 @@ import { Pet } from "../../pet.model";
   selector: "app-pet-detail",
   templateUrl: "./pet-detail.component.html",
   styleUrls: ["./pet-detail.component.scss"],
-  providers: [HealthStatusPipe],
 })
 export class PetDetailComponent implements OnInit {
   subscription: Subscription;

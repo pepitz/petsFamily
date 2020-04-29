@@ -11,9 +11,8 @@ import { FavoritePetComponent } from "./pets/favorite-pet/favorite-pet.component
 import { PetsSortComponent } from "./pets/pets-sort/pets-sort.component";
 import { PetsInterceptorService } from "./pets/pets-interceptor.service";
 import { ListControlsComponent } from "./pets/pets-list/list-controls/list-controls.component";
-import { SortPetsPipe } from './shared/pipes/sort-pets.pipe';
-import { LoaderComponent } from './shared/loader/loader.component';
-import { HealthStatusPipe } from './shared/pipes/health-status.pipe';
+import { SortPetsPipe } from "./shared/pipes/sort-pets.pipe";
+import { LoaderComponent } from "./shared/loader/loader.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { HealthStatusPipe } from './shared/pipes/health-status.pipe';
     ListControlsComponent,
     SortPetsPipe,
     LoaderComponent,
-    HealthStatusPipe,
   ],
   imports: [
     BrowserModule,
