@@ -31,16 +31,17 @@
     <ul class="pets-container__list">
       <li
         *ngFor="let pet of petslist | sortPets: sortParam; let i = index"
-        class="pets__list-item"
+        class="pets__list--item"
       >
-        <a routerLink="{{ pet.id }}">
-          <img
-            [src]="pet.photo_url"
-            alt="A {{ pet.kind }} named {{ pet.name }}"
-          />
+        <a class="column__link" routerLink="{{ pet.id }}">
+          <div class="list-item__img">
+            <img
+              [src]="pet.photo_url"
+              alt="A {{ pet.kind }} named {{ pet.name }}"
+            />
+          </div>
           <div class="list-item__info">
-            <span class="info-detail info-detail-name">{{ pet.name }}</span>
-            <span class="info-detail info-detail-kind">{{ pet.kind }}</span>
+            <h4 class="info-detail info-detail-name">{{ pet.name }}</h4>
           </div>
         </a>
       </li>
