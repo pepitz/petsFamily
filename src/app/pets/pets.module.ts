@@ -8,8 +8,8 @@ import { PetsListComponent } from "./pets-list/pets-list.component";
 import { FavoritePetComponent } from "./favorite-pet/favorite-pet.component";
 import { PetsSortComponent } from "./pets-sort/pets-sort.component";
 import { ListControlsComponent } from "./pets-list/list-controls/list-controls.component";
-import { SortPetsPipe } from "../shared/pipes/sort-pets.pipe";
 import { PetsRoutingModule } from "./pets-routing.module";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -18,16 +18,7 @@ import { PetsRoutingModule } from "./pets-routing.module";
     FavoritePetComponent,
     PetsSortComponent,
     ListControlsComponent,
-    SortPetsPipe,
   ],
-  imports: [RouterModule, CommonModule, ReactiveFormsModule, PetsRoutingModule],
-  exports: [
-    PetsListComponent,
-    PetDetailComponent,
-    FavoritePetComponent,
-    PetsSortComponent,
-    ListControlsComponent,
-    SortPetsPipe,
-  ],
+  imports: [SharedModule, RouterModule, ReactiveFormsModule, PetsRoutingModule],
 })
 export class PetsModule {}
