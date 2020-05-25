@@ -9,6 +9,10 @@ const routes: Routes = [
     pathMatch: "full",
   },
   {
+    path: "pets",
+    loadChildren: () => import("./pets/pets.module").then((m) => m.PetsModule),
+  },
+  {
     path: "**",
     component: PageNotFoundComponent,
   },

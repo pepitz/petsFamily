@@ -6,9 +6,10 @@ import { PetDetailComponent } from "./pet-detail/pet-detail/pet-detail.component
 
 const routes: Routes = [
   {
-    path: "pets",
+    // path: "pets",
+    path: "",
+    component: PetsListComponent,
     children: [
-      { path: "", component: PetsListComponent },
       {
         path: ":id",
         component: PetDetailComponent,
