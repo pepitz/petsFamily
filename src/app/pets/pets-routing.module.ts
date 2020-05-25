@@ -6,15 +6,14 @@ import { PetDetailComponent } from "./pet-detail/pet-detail/pet-detail.component
 
 const routes: Routes = [
   {
-    // path: "pets",
     path: "",
-    component: PetsListComponent,
-    children: [
-      {
-        path: ":id",
-        component: PetDetailComponent,
-      },
-    ],
+    redirectTo: "pets",
+    pathMatch: "full",
+  },
+  { path: "pets", component: PetsListComponent },
+  {
+    path: ":id",
+    component: PetDetailComponent,
   },
 ];
 
